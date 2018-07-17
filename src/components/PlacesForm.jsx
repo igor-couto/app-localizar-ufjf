@@ -16,12 +16,12 @@ class PlacesForm extends Component {
                         <input type="text" id="place-id" value="" hidden/>
                         <div  className="form-row">
                             <label htmlFor="name">Nome</label>
-                            <input  className="form-control" type="text" id="name" required/>
+                            <input className="form-control" type="text" id="name" required/>
                         </div>
 
                         <div  className="form-row">
                             <label htmlFor="area">Area</label>
-                            <select  className="custom-select htmlForm-control" id="area" required>
+                            <select  className="custom-select htmlForm-control" id="area" required onChange={console.log(this)}>
                                 <option value="">Areas...</option>
                                 <option value="ICE">ICE</option>
                                 <option value="Engenharia">Engenharia</option>
@@ -31,7 +31,7 @@ class PlacesForm extends Component {
                             </select>
                         </div>
 
-                        <div  className="form-group row latlng-input">
+                        <div className="form-group row latlng-input">
                             <div  className="form-group col">
                                 <label htmlFor="lat">Latitude</label>
                                 <input  className="form-control" type="text" id="lat" placeholder="Latitude" readOnly required/>    
@@ -39,11 +39,11 @@ class PlacesForm extends Component {
                             
                             <div  className="form-group col">
                                 <label htmlFor="lng">Longitude</label>
-                                <input  className="form-control" type="text" id="lng" placeholder="Longitude" readOnly required/>
+                                <input className="form-control" type="text" id="lng" placeholder="Longitude" readOnly required/>
                             </div>
                         </div>
 
-                        <div  className="form-group row">
+                        <div className="form-group row">
 
                             <div  className="form-group col-6">
                                 <label htmlFor="info">Descrição</label>

@@ -21,7 +21,8 @@ export default class App extends Component {
     };
   }
 
-  render() {
+
+ render() {
     return (
       <div className="App">
 
@@ -31,7 +32,8 @@ export default class App extends Component {
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
 
         <div id="message-box"></div>
-        <MapContainer google={this.props.google}/>
+        {/*<MapContainer google = {this.props.google}/>*/}
+        <MapContainer google = {window.google}/>
         <div className="menu">
           <div className="container">
             <PlacesPanel/>
