@@ -5,23 +5,35 @@ import IconDisplay from './IconDisplay';
 
 class PlacesForm extends Component {
 
+    constructor(props){
+        super(props);
+    }
+
     registerNewPlace(){}
     deletePlace(){}
     editPlace(){}
 
+    clearForm(){
+        document.getElementById('name').innerHTML = "";
+    }
+
+    updateForm(props) {
+        //props.areas
+    }
+
     render() {
         return (
                 <div id="PlacesForm">
-                    <form  className="menu-form">
+                    <form className="menu-form">
                         <input type="text" id="place-id" value="" hidden/>
                         <div  className="form-row">
                             <label htmlFor="name">Nome</label>
-                            <input className="form-control" type="text" id="name" required/>
+                            <input className="form-control" type="text" id="name" required value={this.props.selectedPlace.name}/>
                         </div>
 
                         <div  className="form-row">
                             <label htmlFor="area">Area</label>
-                            <select  className="custom-select htmlForm-control" id="area" required onChange={console.log(this)}>
+                            <select  className="custom-select htmlForm-control" id="area" value={this.props.selectedPlace.area} required>
                                 <option value="">Areas...</option>
                                 <option value="ICE">ICE</option>
                                 <option value="Engenharia">Engenharia</option>
@@ -33,13 +45,13 @@ class PlacesForm extends Component {
 
                         <div className="form-group row latlng-input">
                             <div  className="form-group col">
-                                <label htmlFor="lat">Latitude</label>
-                                <input  className="form-control" type="text" id="lat" placeholder="Latitude" readOnly required/>    
+                                <label htmlFor="lat"></label>
+                                <input  className="form-control" type="text" id="lat" placeholder="Latitude" value={this.props.selectedPlace.position.lat} readOnly required/>    
                             </div>
                             
                             <div  className="form-group col">
-                                <label htmlFor="lng">Longitude</label>
-                                <input className="form-control" type="text" id="lng" placeholder="Longitude" readOnly required/>
+                                <label htmlFor="lng"></label>
+                                <input className="form-control" type="text" id="lng" placeholder="Longitude" value={this.props.selectedPlace.position.lng} readOnly required/>
                             </div>
                         </div>
 
@@ -47,7 +59,7 @@ class PlacesForm extends Component {
 
                             <div  className="form-group col-6">
                                 <label htmlFor="info">Descrição</label>
-                                <textarea  className="form-control" id="info" rows="6" cols="40"></textarea> 
+                                <textarea  className="form-control" id="info" rows="6" cols="40" value={this.props.selectedPlace.info}></textarea> 
                             </div>
 
                             <div  className="form-group col-3">

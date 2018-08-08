@@ -6,8 +6,8 @@ import PlacesForm from './PlacesForm';
 
 class PlacesPanel extends Component {
 
-	constructor(){
-		super();
+	constructor(props){
+		super(props);
 		this.state = {
 			placeName : '',
 			areas: '',
@@ -18,14 +18,20 @@ class PlacesPanel extends Component {
 		};
 	}
 
+	toggleInspectPlaces(){
+	}
+
+	toggleAddPlaces(){
+	}
+
 	render() {
 		return (
 				<div>
 	                <ul className="nav nav-pills nav-justified nav-pills-custom" role="tablist">
-	                  <li className="nav-item" id="inspect-place-pill"><a className="nav-link active" data-toggle="pill" href="">Inspecionar</a></li>
-	                  <li className="nav-item" id="new-place-pill"><a className="nav-link" data-toggle="pill" href="">Adicionar Novo</a></li>
+	                  <li className = "nav-item" id = "inspect-place-pill"><a className="nav-link active" data-toggle="pill" onClick={this.toggleInspectPlaces}>Inspecionar</a></li>
+	                  <li className = "nav-item" id = "new-place-pill"><a className="nav-link" data-toggle="pill" onClick={this.toggleAddPlaces}>Adicionar Novo</a></li>
 	                </ul>
-	                <PlacesForm/>
+	                <PlacesForm selectedPlace = {this.props.selectedPlace}/>
 				</div>
 		);
 	}

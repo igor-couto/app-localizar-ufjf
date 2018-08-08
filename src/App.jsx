@@ -5,15 +5,15 @@ import {MapContainer} from './components/MapContainer';
 import PlacesPanel from './components/PlacesPanel'; 
 
 export default class App extends Component {
-  
+
+
   constructor(){
     super();
     this.state = {
-      placeSelected : {
+      selectedPlace : {
         name: '',
         area: '',
-        lat: 0,
-        lng: 0,
+        position : { lat: 0, lng : 0},
         info: '',
         icon: '',
         model: '',
@@ -21,6 +21,12 @@ export default class App extends Component {
     };
   }
 
+
+  switchSelectedPlaceHandler = (selectedPlace) => this.setState({selectedPlace});
+
+  componentDidUpdate(prevProps){
+
+  }
 
  render() {
     return (
@@ -33,10 +39,10 @@ export default class App extends Component {
 
         <div id="message-box"></div>
         {/*<MapContainer google = {this.props.google}/>*/}
-        <MapContainer google = {window.google}/>
+        <MapContainer google = {window.google} selectedPlace = {this.state.selectedPlace} switchSelectedPlace = {this.switchSelectedPlaceHandler} />
         <div className="menu">
           <div className="container">
-            <PlacesPanel/>
+            <PlacesPanel selectedPlace = {this.state.selectedPlace} switchPlace = {this.switchSelectedPlaceHandler}/>
           </div>
         </div>
       </div>
@@ -45,3 +51,4 @@ export default class App extends Component {
 }
 
 //https://www.npmjs.com/package/google-maps-react
+//https://www.youtube.com/watch?v=UtIOMUQ7nWM

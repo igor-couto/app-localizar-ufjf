@@ -9,7 +9,7 @@ class IconDisplay extends Component {
 	                    <option value="pin">Pin</option>
 	                </select>
 	                <div  className="icon-container">
-	                    <img src="localhost:4444/img/pin.png" alt="icone do marker"/>
+	                    <img src="http://localhost:4444/img/pin.png" alt="icone do marker"/>
 	                </div>
 	                <div  className="custom-file">
 	                    <input type="file"  className="custom-file-input" id="icon-upload" lang="pt-br"/>
